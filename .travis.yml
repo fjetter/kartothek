@@ -18,6 +18,7 @@ before_install:
 
 install:
   - pip install --upgrade -r test-requirements-pinned.txt
+  - pip install dask==1.2.0
   - pip install --upgrade pytest
   - pip install --no-deps dist/*
 
