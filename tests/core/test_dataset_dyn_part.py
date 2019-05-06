@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 
-
 import os
 import random
 import tempfile
-from distutils.version import LooseVersion
 
-import dask
 import numpy as np
 import pandas as pd
 import pytest
@@ -16,6 +13,7 @@ import storefact
 from six.moves import xrange
 from six.moves.urllib.parse import quote
 
+from kartothek.core._compat import DASK_LARGER_EQ_121
 from kartothek.core.common_metadata import (
     _get_common_metadata_key,
     make_meta,
@@ -339,7 +337,9 @@ def test_dynamic_partitions_quote(store, metadata_version):
     assert dmd_dict["indices"] == expected_indices
 
 
-@pytest.mark.xfail(LooseVersion(dask.__version__) >= "1.2.1")
+@pytest.mark.xfail(
+    DASK_LARGER_EQ_121, reason="Getting an import error with this combination"
+)
 def test_dask_partitions(metadata_version):
     """
     Create partitions for one table with dask
