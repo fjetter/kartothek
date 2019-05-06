@@ -4,9 +4,12 @@
 import os
 import random
 import tempfile
+from distutils.version import LooseVersion
 
+import dask
 import numpy as np
 import pandas as pd
+import pytest
 import simplejson
 import six
 import storefact
@@ -336,6 +339,7 @@ def test_dynamic_partitions_quote(store, metadata_version):
     assert dmd_dict["indices"] == expected_indices
 
 
+@pytest.mark.xfail(LooseVersion(dask.__version__) >= "1.2.1")
 def test_dask_partitions(metadata_version):
     """
     Create partitions for one table with dask
