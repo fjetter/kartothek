@@ -24,3 +24,7 @@ exclude_lines =
 ignore_errors = True
 omit =
     tests/*
+    # These are the actual test implementations
+    kartothek/io/testing/*
+    # This is tooling for deprecation messages which are only used when smth is deprecated
+    kartothek/core/_deprecation.py
