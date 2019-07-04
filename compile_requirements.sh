@@ -14,18 +14,13 @@ fi
 
 if [ ! -z ${KARTOTHEK_PANDAS_VERSION} ];
 then
-    (
-        pip download --pre $KARTOTHEK_PANDAS_VERSION
-        echo ${PWD}/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl >> kartothek_env_reqs.txt
-    ) || (
-        wget https://github.com/pandas-dev/pandas/releases/download/v0.25.0rc0/pandas-0.25.0rc0.tar.gz
-        tar -xf pandas-0.25.0rc0.tar.gz
-        pushd pandas-0.25.0rc0
-        python setup.py bdist_wheel
+    wget https://github.com/pandas-dev/pandas/releases/download/v0.25.0rc0/pandas-0.25.0rc0.tar.gz
+    tar -xf pandas-0.25.0rc0.tar.gz
+    pushd pandas-0.25.0rc0
+    python setup.py bdist_wheel
 
-        echo ${PWD}/dist/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl >> kartothek_env_reqs.txt
-        popd
-    )
+    echo ${PWD}/dist/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl >> kartothek_env_reqs.txt
+    popd
 fi
 
 
