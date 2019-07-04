@@ -7,6 +7,7 @@ developmentIndex=platform_dev
 touch kartothek_env_reqs.txt
 trap 'rm -f kartothek_env_reqs.txt' EXIT
 
+
 if [ ! -z ${KARTOTHEK_ARROW_VERSION} ];
 then
     echo pyarrow==$KARTOTHEK_ARROW_VERSION >> kartothek_env_reqs.txt
@@ -19,8 +20,10 @@ then
     pushd pandas-0.25.0rc0
     python setup.py bdist_wheel
 
-    echo ${PWD}/dist/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl >> kartothek_env_reqs.txt
+    cp ${PWD}/dist/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl ${PWD}/..
     popd
+    rm -rf pandas-0.25.0rc0
+    echo ${PWD}/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl >> kartothek_env_reqs.txt
 fi
 
 
