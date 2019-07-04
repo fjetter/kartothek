@@ -16,10 +16,11 @@ if [ ! -z ${KARTOTHEK_PANDAS_VERSION} ];
 then
     wget https://github.com/pandas-dev/pandas/releases/download/v0.25.0rc0/pandas-0.25.0rc0.tar.gz
     tar -xf pandas-0.25.0rc0.tar.gz
-    cd pandas-0.25.0rc0
+    pushd pandas-0.25.0rc0
     python setup.py bdist_wheel
 
     echo ${PWD}/dist/pandas-0.25.0rc0-cp36-cp36m-linux_x86_64.whl >> kartothek_env_reqs.txt
+    popd
 fi
 
 
