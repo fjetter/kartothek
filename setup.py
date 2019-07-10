@@ -25,7 +25,7 @@ def setup_package():
             "Programming Language :: Python :: 3.6",
             "Programming Language :: Python :: 3.7",
         ],
-        use_scm_version=True,
+        version="3.1.0rc0",
         long_description=open("README.md", "r").read(),
         long_description_content_type="text/markdown",
         python_requires=">=3.6",
