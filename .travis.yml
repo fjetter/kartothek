@@ -37,7 +37,7 @@ after_success:
 deploy:
   provider: pypi
   user: fjetter
-  server: https://test.pypi.org/legacy
+  server: https://test.pypi.org/legacy/
   password:
     secure: jIhp3YW3E/Ri2X2Bl+5wAl5mLptZNN8dTCuegKpbVCOL7tWSK/5HTrQrUIGxllFtLGglYjN7KqmFS5SAws/HcqLzEYr3FAe07NCMF44GRxQZBjm+rnh4YVh1q3giwmyfqWvpD/KRi90r5kDt5hBYJJiYGvhYWxKBh5yXFaAx4hCgzzhCnbE3ZLWsNmVtIvubDq6126/BbhH8+GsnbmUvay/BVIIZQ+QTqfartvE5ibGrbPOrMMEgmfW63x6B5eZsOoaj4Nu8zI+m+D0VxaDXxO5lUfBSQ8Lwa3nhXhrhf19qlkMrYNW0vHSCiDx9WBzLGWDpJVCl5AUneebLvynPdUWca+GFfqdD9MdxRKrjJZnJZfq8PrCG3cjeTR+3VOb7fOApnvXeblocXuK9yJmTOnv3Gx9r95953W1/WwTOpOCKdEfokmxu6Cv0Jy5oX3tHripED3ihTLHfjGV1DWqeXGohJCr4qkTC2DTU84rFkJqUalQ9Kh2F7qip1J0M/oV/s1IJUKUHsccVcNp/ck8YlAazZZZqPWJwXtrMaR6PsA/b7o9sfd7V4JTxK1miyD1e2EZsUkbdl6gOo8Dx0ZzjwwUSvd3bCywNw1G2yH2fkISyE2YU8AEEnyGmx2RA6lUVGfWu0R2NxnYU1lMQwEa3Y6nCCRYoXg+zuGVtVDikkTk=
   distributions: sdist bdist_wheel
