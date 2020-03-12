@@ -3,6 +3,10 @@ language: python
 # needed for python>=3.7
 dist: xenial
 
+cache:
+  directories:
+   - /home/travis/miniconda/pkgs
+
 python:
   - 3.6
   - 3.7
@@ -38,6 +42,7 @@ before_install:
     done
   - source "$HOME/miniconda/etc/profile.d/conda.sh"
   - export PATH=$HOME/miniconda/bin:$PATH
+  - conda info -a
   - conda config --set always_yes yes --set changeps1 no
   - travis_retry conda update -q conda
   - conda config --add channels conda-forge
