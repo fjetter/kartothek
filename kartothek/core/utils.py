@@ -1,3 +1,8 @@
+from typing import Union
+
+from pydantic import SecretStr
+from storefact import get_store_from_url
+
 from kartothek.core.naming import MAX_METADATA_VERSION, MIN_METADATA_VERSION
 
 
@@ -46,3 +51,17 @@ def ensure_string_type(obj):
         return obj.decode()
     else:
         return str(obj)
+
+
+class LazyStore:
+    def __init__(self, store_url: Union[str, SecretStr], mask=True):
+        if isinstance(store_url, str) and mask:
+            store_url = SecretStr(store_url)
+        self.mask = mask
+        self._store_url = store_url
+
+    def __call__(self):
+        if self.mask:
+            return get_store_from_url(self._store_url.get_secret_value())
+        else:
+            return get_store_from_url(self._store_url)
